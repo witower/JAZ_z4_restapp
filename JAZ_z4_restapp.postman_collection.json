@@ -1,0 +1,483 @@
+{
+	"info": {
+		"_postman_id": "4ad241c1-c656-4ff4-8691-99379e3b6b78",
+		"name": "JAZ_z4_restapp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/movies",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n\t{\n\t\t\"title\" : \"Gladiator\",\n\t\t\"description\" : \"lorem ipsum\"\n\t},\n\t{\n\t\t\"title\" : \"Przeminelo z wiatrem\",\n\t\t\"description\" : \"lorem ipsum\"\n\t},\n\t{\n\t\t\"title\" : \"Krolewna Sniezka\",\n\t\t\"description\" : \"lorem ipsum\",\n\t\t\"comments\": [{\"body\":\"1st\"},{\"body\":\"2nd\"}]\n\t},\n\t{\n\t\t\"title\" : \"The Ring\",\n\t\t\"description\" : \"lorem ipsum\",\n\t\t\"ratings\" : {\"rate\":4.0}\n\t}\n]"
+				},
+				"url": {
+					"raw": "localhost:8080/restapp/rest/movies",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restapp",
+						"rest",
+						"movies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/movies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/restapp/rest/movies/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restapp",
+						"rest",
+						"movies",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/movies/3",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/restapp/rest/movies/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restapp",
+						"rest",
+						"movies",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/movies/3",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\" : \"Spiaca krolewna\",\n\t\"description\" : \"wrzeciono\",\n\t\"comments\" : [\n\t\t{\n\t\t\t\"body\":\"stringcomment1\"\n\t\t},\n\t\t{\n\t\t\t\"body\":\"stringcomment2\"\n\t\t}\n\t],\n\t\"ratings\":[{\"rate\":2},{\"rate\":4}],\n\t\"meanRate\":5\n\t\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/restapp/rest/movies/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restapp",
+						"rest",
+						"movies",
+						"3"
+					]
+				},
+				"description": "BUG: niepodanie argumentu wywala blad, bo update() jest nieodporne na nullpointerexception\n\npodane meanRate odniesie wplyw tylko jesli ratings jest puste, inaczej meanRate zostanie wyliczony z ratings."
+			},
+			"response": []
+		},
+		{
+			"name": "/movies/2",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/restapp/rest/movies/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restapp",
+						"rest",
+						"movies",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/movies/1/comments",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"body\":\"Hello my first comment here, for the movie id=1\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/restapp/rest/movies/1/comments",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restapp",
+						"rest",
+						"movies",
+						"1",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/movies/3/comments",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/restapp/rest/movies/3/comments",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restapp",
+						"rest",
+						"movies",
+						"3",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/movies/3/rate",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"rate\":5\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/restapp/rest/movies/3/rate",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restapp",
+						"rest",
+						"movies",
+						"3",
+						"rate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/actors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/restapp/rest/actors",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restapp",
+						"rest",
+						"actors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/actors",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n\t{\n\t\t\"fullname\":\"Angelina Jolie\"\n\t},\n\t{\n\t\t\"fullname\":\"Brad Pitt\"\n\t}\n]"
+				},
+				"url": {
+					"raw": "localhost:8080/restapp/rest/actors",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restapp",
+						"rest",
+						"actors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/actors/1",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/restapp/rest/actors/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restapp",
+						"rest",
+						"actors",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/actors/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/restapp/rest/actors/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restapp",
+						"rest",
+						"actors",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/actors/1/movies",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    { \"id\": 1 },\n    { \"id\": 3 },\n    { \"id\": 2 }\n]"
+				},
+				"url": {
+					"raw": "localhost:8080/restapp/rest/actors/1/movies",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restapp",
+						"rest",
+						"actors",
+						"1",
+						"movies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/actors/1/movies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/restapp/rest/actors/1/movies",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restapp",
+						"rest",
+						"actors",
+						"1",
+						"movies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/movies/1/actors",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n\t{ \"id\" : 1 },\n\t{ \"id\" : 3 },\n\t{ \"id\" : 2 }\n]"
+				},
+				"url": {
+					"raw": "localhost:8080/restapp/rest/movies/1/actors",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restapp",
+						"rest",
+						"movies",
+						"1",
+						"actors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/movies/1/actors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/restapp/rest/movies/1/actors",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restapp",
+						"rest",
+						"movies",
+						"1",
+						"actors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/movies/1/actors?delete=1",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/restapp/rest/movies/1/actors?delete=1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"restapp",
+						"rest",
+						"movies",
+						"1",
+						"actors"
+					],
+					"query": [
+						{
+							"key": "delete",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
